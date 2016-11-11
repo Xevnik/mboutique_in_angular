@@ -3,8 +3,9 @@
 <head>
     <title>MBoutique</title>
     <meta charset="UTF-8">
-    <script src="https://rawgit.com/angular/bower-angular/master/angular.min.js"></script>
-    <script src="https://rawgit.com/angular/bower-angular-route/master/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+    <script src="controller.js"></script>
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body ng-controller="mainController as mc">
@@ -12,14 +13,11 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">WELCOME</a></li>
-                <li><a href="our_macarons.html">OUR MACARONS</a></li>
-                <li><a href="gifts.html">GIFTS &amp; PARTIES</a></li>
-                <li><a href="contact">CONTACT</a></li>
+                <li ng-repeat="pages in mc.nav"><a href="{{ pages.pageLoc }}">{{ pages.title }}</a></li>
             </ul>
         </nav>
     </header>
-    <main>
+    <main ng-view>
         <!--insert content here-->
     </main>
     <footer>
